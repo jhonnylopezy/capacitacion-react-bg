@@ -1,0 +1,9 @@
+.contenedor-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    width: 80%;
+    text-align: center;
+    justify-content: center;
+}
