@@ -16,7 +16,8 @@ class Propiedades extends React.Component{
                 <Home 
                       title={"Casas en Bolivia"} 
                       data={this.props.data} 
-                      valueSearch={this.props.valueSearch}/>
+                      valueSearch={this.props.valueSearch}
+                      valueSelect={this.props.valueSelect}/>
             </div>
         )
     }

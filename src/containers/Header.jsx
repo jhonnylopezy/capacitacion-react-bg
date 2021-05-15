@@ -6,45 +6,31 @@ import '../styles/header.css'
 
 class Header extends React.Component{
    constructor(props){
-      super(props)
-      this.state={valueSearch:""};
+      super(props);
       this.eventOnChange=this.eventOnChange.bind(this);
+      this.eventSelect=this.eventSelect.bind(this);
    }
 
    eventOnChange(event) {
       console.log("evento Header: ", event);
-      this.setState({ valueSearch: event });
-      console.log("evento Header2: ", this.state.valueSearch);
-     this.props.OnClickButton(this.state.valueSearch);
+      // this.setState({ valueSearch: event });
+      // console.log("evento Header2: ", this.state.valueSearch);
+     this.props.OnClickButton(event);
+   }
+   eventSelect(event){
+      this.props.OnSelect(event);
    }
    render(){
       return (
          <div className="contenedor">
             <div className="contenedor-header">
                <Logo />
-               <Search clickButton={e => this.eventOnChange(e)} />
+               <Search clickButton={e => this.eventOnChange(e)} 
+                       OnSelect={s=>this.eventSelect(s)}/>
             </div>
          </div>
       )
    }
 }
-
-// const Header = (props) => {
-//   const [list,setList]=React.useState(props.data);
-//    const eventOnChange=event=> {
-//        console.log("evento: ", event);
-//       // this.setState({ valueT: event });
-//     setList(list.filter(item=>item.city==event))
-//    }
-//    return (
-//       <div className="contenedor">
-//          <div className="contenedor-header">
-//             <Logo />
-//             <Search clickButton={e => eventOnChange(e)} />
-//          </div>
-
-//       </div>
-//    )
-// }
 
 export default Header

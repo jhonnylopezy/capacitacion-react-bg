@@ -3,25 +3,44 @@ import Propiedad from './Propiedad'
 import '../styles/listaPropiedades.css'
 
 class ListaPropiedades extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
     render() {
+        let valueSplit = "";
+        if (this.props.dataSelect)
+            valueSplit = this.props.dataSelect.split(',');
+
         return (
             <div className="lista-propiedades">
                 {
                     this.props.data.map((element, key) => {
-                        console.log("ingreso a ListaPropiedades",this.props.dataSearch);
-                        if(this.props.dataSearch){
-                            if(element.city==this.props.dataSearch){
-                                return (
-                                    <Propiedad data={element} key={key} />
-                                )
-                            }
-                        }else{
+                        if (!valueSplit) {
                             return (
                                 <Propiedad data={element} key={key} />
                             )
+                        } else {
+                            if (element.city == valueSplit[0].trim() &&
+                                element.country == valueSplit[1].trim()) {
+                                if (this.props.dataSearch) {
+                                    if (element.city.includes(this.props.dataSearch) ||
+                                        element.title.includes(this.props.dataSearch) ||
+                                        element.rating==this.props.dataSearch ||
+                                        element.maxGuests==this.props.dataSearch ||
+                                        element.type.includes(this.props.dataSearch) ||
+                                        element.beds==this.props.dataSearch
+                                    ) {
+                                        return (
+                                            <Propiedad data={element} key={key} />
+                                        )
+                                    }
+                                } else {
+                                    return (
+                                        <Propiedad data={element} key={key} />
+                                    )
+                                }
+                            }
+
                         }
                     })
                 }
@@ -31,33 +50,6 @@ class ListaPropiedades extends React.Component {
     }
 }
 
-// const ListaPropiedades = (props,dataSearch) => {
-//     return (
-//         <div className="lista-propiedades">
-//             {
-//                 props.data.map((element,key) => {
-//                       console.log("elemento: ",dataSearch);
-//                     // if(dataSearch!=null || dataSearch=="")
-//                     // {
-//                     //     return(
-//                     //         <Propiedad data={element} key={key} />
-//                     //     )
-//                     // }else{
-//                         // if(element.city==dataSearch){
-//                             console.log("ingreso: ",dataSearch);
-//                             return(
-//                                 <Propiedad data={element} key={key} />
-//                             )
-//                         // }
-//                     // }
-
-//                 })
-//             }
-
-
-//         </div>
-//     )
-// }
 
 
 export default ListaPropiedades

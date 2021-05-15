@@ -9,29 +9,26 @@ import Propiedades from '../containers/Propiedades'
 class PrincipalContent extends React.Component{
     constructor(props){
         super(props);
-        this.state={valueSearch:''};
+        this.state={valueSearch:'',valueSelect:""};
     }
     OnEventClick(value){
         console.log("evento PrincipalContent: ", value);
       this.setState({valueSearch:value});
     }
+    EventoSelect(value){
+        this.setState({valueSelect:value});
+    }
     render(){
         return (
             <div className="contenedor">
-                <Header OnClickButton={e=>this.OnEventClick(e)}/>
-                <Propiedades data={lista} valueSearch={this.state.valueSearch}/>
+                <Header OnClickButton={e=>this.OnEventClick(e)}
+                        OnSelect={e=>this.EventoSelect(e)}/>
+                <Propiedades data={lista} 
+                             valueSearch={this.state.valueSearch}
+                             valueSelect={this.state.valueSelect}/>
             </div>
         )
     }
 }
-
-// const Propiedades = (props) => {
-//     return (
-//         <div className="contenedor">
-//             {console.log("ingreso a Propiedades")}
-//             <Home title={"Casas en Bolivia"} data={props.data} />
-//         </div>
-//     )
-// }
 
 export default PrincipalContent
