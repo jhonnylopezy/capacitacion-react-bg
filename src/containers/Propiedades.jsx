@@ -6,13 +6,11 @@ import '../styles/main.css'
 class Propiedades extends React.Component{
     constructor(props){
         super(props);
-        // this.state={valueSearch:""};
     }
 
     render(){
         return (
             <div className="contenedor">
-                {console.log("ingreso a Propiedades")}
                 <Home 
                       title={"Casas en Bolivia"} 
                       data={this.props.data} 

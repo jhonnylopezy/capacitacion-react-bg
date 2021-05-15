@@ -32,16 +32,17 @@ class Search extends React.Component {
           </select>
         </div>
         <div id="inputId" className="container-select">
-          <input className="container-search"
+          <input className="container-search "
             type="text"
             width="100"
             height="100"
             onChange={e => this.setState({ dataCriteria: e.target.value })} />
         </div>
-        <div id="buttonId" className="container-select">
+        <div id="buttonId" className="container-select container-button">
           <a href="#"
+             title="Buscar"
             onClick={e => this.props.clickButton(this.state.dataCriteria)}
-            src={imagenSearch}>buscar</a>
+            src={imagenSearch}> <div id="lupa" class="shape"></div></a>
         </div>
 
       </div>

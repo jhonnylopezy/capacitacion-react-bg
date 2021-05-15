@@ -10,11 +10,7 @@ class Header extends React.Component{
       this.eventOnChange=this.eventOnChange.bind(this);
       this.eventSelect=this.eventSelect.bind(this);
    }
-
    eventOnChange(event) {
-      console.log("evento Header: ", event);
-      // this.setState({ valueSearch: event });
-      // console.log("evento Header2: ", this.state.valueSearch);
      this.props.OnClickButton(event);
    }
    eventSelect(event){

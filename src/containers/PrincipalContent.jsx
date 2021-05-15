@@ -1,5 +1,4 @@
 import React from 'react'
-import Home from '../components/Home'
 import '../styles/main.css'
 import { lista } from '../assets/lista'
 import Header from '../containers/Header'
@@ -12,7 +11,6 @@ class PrincipalContent extends React.Component{
         this.state={valueSearch:'',valueSelect:""};
     }
     OnEventClick(value){
-        console.log("evento PrincipalContent: ", value);
       this.setState({valueSearch:value});
     }
     EventoSelect(value){
